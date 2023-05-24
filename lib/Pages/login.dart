@@ -4,6 +4,7 @@ import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nipee/AppStuff/appColors.dart';
 import 'package:nipee/Pages/bottomNavBar.dart';
+import 'package:nipee/Pages/registration_page.dart';
 
 class LoginPage extends StatefulWidget {
   const LoginPage({super.key});
@@ -157,8 +158,8 @@ class _LoginPageState extends State<LoginPage> {
                         borderRadius: BorderRadius.circular(8)),
                     child: MaterialButton(
                       onPressed: () {
-                        Navigator.of(context).push(
-                            MaterialPageRoute(builder: (_) => const BottomNavBar()));
+                        Navigator.of(context).push(MaterialPageRoute(
+                            builder: (_) => const BottomNavBar()));
                       },
                       child: Text(
                         'Login',
@@ -191,7 +192,10 @@ class _LoginPageState extends State<LoginPage> {
                           fontWeight: FontWeight.w500,
                         ),
                         recognizer: TapGestureRecognizer()
-                          ..onTap = () => print('Tapped!'))
+                          ..onTap = () {
+                            Navigator.of(context).push(MaterialPageRoute(
+                                builder: (_) => const RegistrationPage()));
+                          })
                   ])),
                 )
               ],

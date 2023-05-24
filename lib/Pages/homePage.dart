@@ -51,7 +51,7 @@ class _HomePageState extends State<HomePage> {
                 mainAxisAlignment: MainAxisAlignment.start,
                 children: [
                   Text(
-                    'Some loans you might be interested in',
+                    'Your loans',
                     style: GoogleFonts.lato(
                       fontSize: 15,
                       color: AppColors.black,
