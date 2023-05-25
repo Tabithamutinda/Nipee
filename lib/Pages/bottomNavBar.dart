@@ -31,6 +31,7 @@ class _BottomNavBarState extends State<BottomNavBar> {
         ),
         bottomNavigationBar: BottomNavigationBar(
             selectedItemColor: AppColors.darkGreen,
+            backgroundColor: AppColors.background,
             selectedIconTheme: const IconThemeData(
               color: AppColors.darkGreen,
             ),

@@ -1,3 +1,4 @@
+import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nipee/AppStuff/appColors.dart';
@@ -45,23 +46,41 @@ class _HomePageState extends State<HomePage> {
           const SizedBox(
             height: 20,
           ),
-            Padding(
-              padding: const EdgeInsets.only(right: 24, left: 24),
-              child: Row(
-                mainAxisAlignment: MainAxisAlignment.start,
-                children: [
-                  Text(
-                    'Your loans',
-                    style: GoogleFonts.lato(
-                      fontSize: 15,
-                      color: AppColors.black,
-                      fontWeight: FontWeight.w500,
-                    ),
+          _buildSelection(),
+           const SizedBox(
+            height: 12,
+          ),
+          Padding(
+            padding: const EdgeInsets.only(right: 24, left: 24),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceBetween,
+              children: [
+                Text(
+                  'Your transactions',
+                  style: GoogleFonts.lato(
+                    fontSize: 15,
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w500,
                   ),
-                ],
-              ),
+                ),
+                RichText(text: TextSpan(
+                  children: <TextSpan> [
+                    TextSpan(
+                      text: 'View All',style: GoogleFonts.lato(
+                    fontSize: 15,
+                    color: AppColors.black,
+                    fontWeight: FontWeight.w500,
+                    decoration: TextDecoration.underline
+                  ),
+                      recognizer: TapGestureRecognizer()
+                          ..onTap = () {}
+                    )
+                  ]
+                ))
+              ],
             ),
-            const SizedBox(
+          ),
+          const SizedBox(
             height: 12,
           ),
           _buildLoanExamples()
@@ -145,17 +164,17 @@ class _HomePageState extends State<HomePage> {
                               child: Column(
                                 mainAxisAlignment: MainAxisAlignment.center,
                                 children: [
-                                  Image.asset('assets/images/adding.png'),
+                                  Image.asset('assets/images/pay.png'),
                                   const SizedBox(
                                     height: 5,
                                   ),
                                   Center(
                                     child: Text(
-                                      'Top up',
+                                      'Pay',
                                       style: GoogleFonts.lato(
-                                        fontSize: 12,
+                                        fontSize: 14,
                                         color: AppColors.darkGreen,
-                                        fontWeight: FontWeight.w500,
+                                        fontWeight: FontWeight.w600,
                                       ),
                                     ),
                                   )
@@ -168,13 +187,66 @@ class _HomePageState extends State<HomePage> {
                       height: 10,
                     ),
                     Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
                       children: [
-                        Image.asset('assets/images/upward.png'),
-                        const SizedBox(
-                          width: 8,
+                        Text(
+                          'Interest earned:',
+                          style: GoogleFonts.lato(
+                            fontSize: 12,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
                         ),
                         Text(
-                          'Kes: ${2500}, Interest earned',
+                          'Kes ${2500}',
+                          style: GoogleFonts.lato(
+                            fontSize: 12,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Due on:',
+                          style: GoogleFonts.lato(
+                            fontSize: 12,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          ' 07 Feb 2024 ',
+                          style: GoogleFonts.lato(
+                            fontSize: 12,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                      ],
+                    ),
+                    const SizedBox(
+                      height: 10,
+                    ),
+                    Row(
+                      mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                      children: [
+                        Text(
+                          'Late Charge:',
+                          style: GoogleFonts.lato(
+                            fontSize: 12,
+                            color: AppColors.white,
+                            fontWeight: FontWeight.w400,
+                          ),
+                        ),
+                        Text(
+                          ' Ksh 0.0 ',
                           style: GoogleFonts.lato(
                             fontSize: 12,
                             color: AppColors.white,
@@ -195,19 +267,96 @@ class _HomePageState extends State<HomePage> {
 
   _buildLoanExamples() {
     return Padding(
-      padding: EdgeInsets.only(right: 24, left: 24, top: MediaQuery.of(context).size.height * 0.1),
-      child: Column(
-        children: [
-          Image.asset('assets/images/empty-state.png',height: 150,width: 150,),
-          Text('No loans applied yet',
-          style: GoogleFonts.lato(
-                            fontSize: 14,
-                            color: AppColors.black,
-                            fontWeight: FontWeight.w400,
-                          ),
-          )
-        ],
+      padding: EdgeInsets.only(
+          right: 24, left: 24, top: MediaQuery.of(context).size.height * 0.05),
+      child: Center(
+        child: Column(
+          children: [
+            Image.asset(
+              'assets/images/empty-state.png',
+              height: 150,
+              width: 150,
+            ),
+            Text(
+              'No transactions yet',
+              style: GoogleFonts.lato(
+                fontSize: 14,
+                color: AppColors.black,
+                fontWeight: FontWeight.w400,
+              ),
+            )
+          ],
+        ),
       ),
     );
+  }
+
+  _buildSelection() {
+    return Padding(
+        padding: const EdgeInsets.only(
+            right: 28,
+            left: 28,),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+               Container(
+                            width: MediaQuery.of(context).size.height * 0.2,
+                            height: 70,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: AppColors.white),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset('assets/images/pay.png'),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      'Request',
+                                      style: GoogleFonts.lato(
+                                        fontSize: 14,
+                                        color: AppColors.darkGreen,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )),
+                            Container(
+                            width: MediaQuery.of(context).size.height * 0.2,
+                            height: 70,
+                            decoration: BoxDecoration(
+                                borderRadius: BorderRadius.circular(8),
+                                color: AppColors.darkGreen.withOpacity(0.3)),
+                            child: MaterialButton(
+                              onPressed: () {},
+                              child: Column(
+                                mainAxisAlignment: MainAxisAlignment.center,
+                                children: [
+                                  Image.asset('assets/images/loan.png',),
+                                  const SizedBox(
+                                    height: 5,
+                                  ),
+                                  Center(
+                                    child: Text(
+                                      'My Loans',
+                                      style: GoogleFonts.lato(
+                                        fontSize: 14,
+                                        color: AppColors.darkGreen,
+                                        fontWeight: FontWeight.w600,
+                                      ),
+                                    ),
+                                  )
+                                ],
+                              ),
+                            )),
+              ],
+            ),
+            );
   }
 }
