@@ -42,7 +42,7 @@ class _HomePageState extends State<HomePage> {
           ),
         ),
       ),
-      body: Column(
+      body: ListView(
         children: <Widget>[
           _buildLoanCard(),
           const SizedBox(
@@ -270,24 +270,71 @@ class _HomePageState extends State<HomePage> {
 
   _buildLoanExamples() {
     return Padding(
-      padding: EdgeInsets.only(
-          right: 24, left: 24, top: MediaQuery.of(context).size.height * 0.05),
-      child: Center(
+      padding: const EdgeInsets.only(
+          right: 10, left: 10,),
+      child: SizedBox(
+        height: 250,
         child: Column(
+          crossAxisAlignment: CrossAxisAlignment.start,
           children: [
-            Image.asset(
-              'assets/images/empty-state.png',
-              height: 150,
-              width: 150,
-            ),
-            Text(
-              'No transactions yet',
-              style: GoogleFonts.lato(
-                fontSize: 14,
-                color: AppColors.black,
-                fontWeight: FontWeight.w400,
-              ),
-            )
+            Expanded(
+                     child: ListView(
+                         physics: const AlwaysScrollableScrollPhysics(),
+                         children: List.generate(5, (index) {
+                           return ListTile(
+                             leading: Container(
+                               width: 50,
+                               height: 50,
+                               decoration: BoxDecoration(
+                                   borderRadius: BorderRadius.circular(100),
+                                   color: AppColors.white),
+                               child: const Icon(Icons.star),
+                             ),
+                             title: Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: [
+                                 Text(
+                                   'QWERTYHGGF',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 14,
+                                     color: AppColors.black,
+                                     fontWeight: FontWeight.w500,
+                                   ),
+                                 ),
+                                 Text(
+                                   '500.00',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 14,
+                                     color: AppColors.green,
+                                     fontWeight: FontWeight.w400,
+                                   ),
+                                 )
+                               ],
+                             ),
+                             subtitle: Row(
+                               mainAxisAlignment: MainAxisAlignment.spaceBetween,
+                               children: [
+                                 Text(
+                                   '24 May 2023',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 12,
+                                     color: AppColors.subtitle,
+                                     fontWeight: FontWeight.w400,
+                                   ),
+                                 ),
+                                 Text(
+                                   'Deposit',
+                                   style: GoogleFonts.lato(
+                                     fontSize: 12,
+                                     color: AppColors.darkGreen,
+                                     fontWeight: FontWeight.w400,
+                                   ),
+                                 )
+                               ],
+                             ),
+                           );
+                         })),
+                   ),
           ],
         ),
       ),
