@@ -44,6 +44,7 @@ dependencies:
   hydrated_bloc: ^9.1.1
   flutter_profile_picture: ^2.0.0
   draggable_bottom_sheet: ^1.0.2
+  import_sorter: ^4.6.0
 
 dev_dependencies:
   flutter_test:

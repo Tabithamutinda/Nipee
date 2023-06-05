@@ -1,7 +1,12 @@
+// Flutter imports:
 import 'package:flutter/gestures.dart';
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// Project imports:
 import 'package:nipee/AppStuff/appColors.dart';
 import 'package:nipee/Pages/bottomNavBar.dart';
 import 'package:nipee/Pages/registration_page.dart';

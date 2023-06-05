@@ -1,6 +1,11 @@
+// Flutter imports:
 import 'package:flutter/material.dart';
+
+// Package imports:
 import 'package:flutter_form_builder/flutter_form_builder.dart';
 import 'package:google_fonts/google_fonts.dart';
+
+// Project imports:
 import 'package:nipee/AppStuff/appColors.dart';
 import 'package:nipee/Pages/reviewLoanApplication.dart';
 
