@@ -1,6 +1,7 @@
 import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nipee/AppStuff/appColors.dart';
+import 'package:nipee/Pages/MyLoanDetailsScreen.dart';
 
 class MyLoans extends StatefulWidget {
   const MyLoans({super.key});
@@ -109,7 +110,7 @@ class _MyLoansState extends State<MyLoans> {
                                     borderRadius: BorderRadius.circular(8),
                                     color: AppColors.darkGreen),
                                 child: MaterialButton(
-                                  onPressed: () {},
+                                  onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const MyLoanDetails())),
                                   child: Center(
                                     child: Text(
                                       'Details',
