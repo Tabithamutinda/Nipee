@@ -76,7 +76,6 @@ class _HomePageState extends State<HomePage> {
                           decoration: TextDecoration.underline),
                       recognizer: TapGestureRecognizer()
                         ..onTap = () {
-                          // controller.open;
                           openTransactionSheet(context);
                         })
                 ]))
@@ -439,7 +438,7 @@ class _HomePageState extends State<HomePage> {
                   Container(
                     height: 2,
                     width: MediaQuery.of(context).size.width * 0.2,
-                    color: Colors.grey[300], // Color of the top-notch line
+                    color: Colors.grey[300],
                   ),
                   const SizedBox(
                     height: 5,
@@ -448,7 +447,7 @@ class _HomePageState extends State<HomePage> {
                     mainAxisAlignment: MainAxisAlignment.start,
                     children: [
                       IconButton(
-                          onPressed: () {},
+                          onPressed: () => Navigator.pop(context),
                           icon: const Icon(Icons.cancel_sharp)),
                     ],
                   ),
