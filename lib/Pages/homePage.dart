@@ -429,7 +429,7 @@ class _HomePageState extends State<HomePage> {
         context: context,
         builder: (BuildContext context) {
           return Padding(
-            padding: const EdgeInsets.only(top: 5),
+            padding: const EdgeInsets.only(top: 2),
             child: SizedBox(
               height: MediaQuery.of(context).size.height,
               width: MediaQuery.of(context).size.width,
@@ -448,12 +448,12 @@ class _HomePageState extends State<HomePage> {
                     children: [
                       IconButton(
                           onPressed: () => Navigator.pop(context),
-                          icon: const Icon(Icons.cancel_sharp)),
+                          icon: const Icon(Icons.cancel_rounded)),
                     ],
                   ),
-                  const SizedBox(
-                    height: 5,
-                  ),
+                  // const SizedBox(
+                  //   height: 5,
+                  // ),
                   Text(
                     'Your Transactions',
                     style: GoogleFonts.sourceSansPro(
