@@ -3,6 +3,7 @@ import 'package:flutter/material.dart';
 import 'package:google_fonts/google_fonts.dart';
 import 'package:nipee/AppStuff/appColors.dart';
 import 'package:nipee/Pages/myLoans.dart';
+import 'package:nipee/Pages/requestLoan.dart';
 
 class HomePage extends StatefulWidget {
   const HomePage({super.key});
@@ -309,7 +310,7 @@ class _HomePageState extends State<HomePage> {
                   borderRadius: BorderRadius.circular(8),
                   color: AppColors.white),
               child: MaterialButton(
-                onPressed: () {},
+                onPressed: () => Navigator.of(context).push(MaterialPageRoute(builder: (_)=> const RequestLoan())),
                 child: Column(
                   mainAxisAlignment: MainAxisAlignment.center,
                   children: [
